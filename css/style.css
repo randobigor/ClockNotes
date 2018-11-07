@@ -1,0 +1,23 @@
+body{
+    background: #2c3e50;   
+    /* background-image: url("../assets/hello.jpg"); */
+
+}
+
+.clock{
+    text-align: center;
+    padding: 0;
+    margin: 0 auto;
+    z-index: 0;
+}
+
+.buttons{
+    position: absolute;
+    top: 185px;
+    left: 48.6%;
+    z-index: 1;
+}
+
+.container{
+    color: black;
+}
