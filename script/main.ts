@@ -15,10 +15,10 @@ document.addEventListener('DOMContentLoaded', function(){
     var y = 150;
     var r = 145;
     var start = -90 * Math.PI/180;
-    
-    var am = mn/60*Math.PI*2+start;
-    var ah = (hr % 12 / 12) * Math.PI*2+start;
-    var as = sc/60*Math.PI*2+start;
+    //Getting time 
+    var am = (mn/60)*Math.PI*2+start;
+    var ah = ((hr % 12) / 12) * Math.PI*2+start;
+    var as = (sc/60)*Math.PI*2+start;
     //hr % 12 / 12  - time
 
     ctx.lineWidth = 8; //Толщина линии
@@ -79,39 +79,34 @@ document.addEventListener('DOMContentLoaded', function(){
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body" style= "text-align: center;">`
+            <div class="modal-body">`
             +
             //Buttons for Dropdowns (image, video, text)
             `
             <p>
-              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#import_image" aria-expanded="false" aria-controls="multiCollapseExample1">Изображение</button>
-              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#import_video" aria-expanded="false" aria-controls="multiCollapseExample2">Видео</button>
-              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#import_text" aria-expanded="false" aria-controls="multiCollapseExample3">Текст</button>
+              <a class="btn btn-primary" data-toggle="collapse" href="#import_image" aria-expanded="true" aria-controls="import_image">Изображение</a>
+              <a class="btn btn-primary" data-toggle="collapse" href="#import_video" aria-expanded="true" aria-controls="import_video">Видео</a>
+              <a class="btn btn-primary" data-toggle="collapse" href="#import_text" aria-expanded="true" aria-controls="import_text">Текст</a>
             </p>
             `
             //Dropdown for image
             +
-            `
-            <div>
-              <div>
-                <div class="collapse multi-collapse" id="import_image">
-                  <div class="card card-body">
-        
-                  <div class="input-group mb-3">
-                    <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="inputGroupFile02">
-                      <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
-                    </div>
-                    <div class="input-group-append">
-                        <span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
-                      </div>
-                    </div>
+            ` 
+            <div class="collapse" id="import_image">
+              <div class="card card-body">
+                <div class="input-group mb-3">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile02">
+                    <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
+                  </div>
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
                   </div>
                 </div>
               </div>
+            </div>
 
-              <div> 
-                <div class="collapse multi-collapse" id="import_video">
+                <div class="collapse" id="import_video">
                   <div class="card card-body">
                     <div class="input-group mb-3">
                       <input type="text" class="form-control" placeholder="Вставьте ссылку на изображение" aria-label="Recipient's username" aria-describedby="button-addon2">
@@ -121,10 +116,8 @@ document.addEventListener('DOMContentLoaded', function(){
                       </div>
                     </div>
                 </div>
-              </div>
 
-              <div>
-                <div class="collapse multi-collapse" id="import_text">
+                <div class="collapse" id="import_text">
                   <div class="card card-body">
                     <div class="input-group">
                       <div class="input-group-prepend">
@@ -134,9 +127,10 @@ document.addEventListener('DOMContentLoaded', function(){
                     </div>
                   </div>
                 </div>
-              </div>
-
-            </div>
+              $('#import_image').on('show.bs.collapse', function () {
+                  $('#import_video').collapse('hide')
+                  $('#import_text').collapse('hide')
+              });
             `
             ////////////////
             +
@@ -151,6 +145,7 @@ document.addEventListener('DOMContentLoaded', function(){
       </div>`;
     
   })
+});
   var d = document.querySelector('#add');
   d.addEventListener('click', function(){
     var cnt = document.querySelector('.container');
@@ -164,6 +159,6 @@ document.addEventListener('DOMContentLoaded', function(){
         </div>
         </div>
     `;
-  })
+
 })
 
