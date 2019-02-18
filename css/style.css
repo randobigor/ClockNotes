@@ -1,7 +1,16 @@
-body{
-    background: #2c3e50;   
-    /* background-image: url("../assets/hello.jpg"); */
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
 
+body{
+    background: #2c3e50;
+}
+
+h1{
+    text-align: center;
+    /* color: #1abc9c; */
+    color: #37c9be;
 }
 
 .clock{
@@ -9,15 +18,103 @@ body{
     padding: 0;
     margin: 0 auto;
     z-index: 0;
+    margin-top: 10px;
 }
 
-.buttons{
+.buttons #add_Event{
     position: absolute;
-    top: 185px;
-    left: 48.6%;
+    top: 135px;
+    width: 38px;
+    left: calc(50% - 22px);
+    z-index: 1;
+}
+
+.buttons #clearSyn{
+    text-align: center;
+    font-size: 0.7em;
+    position: absolute;
+    top: 230px;
+    left: calc(50% - 42px);
+    z-index: 1;
+}
+
+.buttons #setEvent{
+    font-size: 0.7em;
+    position: absolute;
+    top: 270px;
+    left: 48.7%;
     z-index: 1;
 }
 
 .container{
     color: black;
 }
+
+#onlyThisHR{
+    background:#37c9be;
+}
+
+.cards{
+    padding-top: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;    
+}
+
+#contentCard{
+    margin: 5px;
+    width: 20% !important;
+    background-color: rgb(52,73,94);
+    color: White;
+    text-align: center;
+}
+
+#removeItem{
+    width: 100%;
+}
+
+#evTime{
+    border: 1px solid lightgray;
+    border-radius: .25rem;
+}
+
+/* ANIMATION CSS */
+
+.holder{
+    display: block;
+    top: -4% !important;
+    position:absolute;
+    z-index: 0;
+    left: calc(50% - 250px);
+}
+
+
+#layer-1 {
+    animation-name: spin;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+.shape-1, .shape-4 {
+    opacity: 0.06;
+}
+
+.shape-2, .shape-5 {
+    opacity: 0.06;
+}
+
+.shape-3, .shape-6 {
+    opacity: 0.06;
+}
+
+
